@@ -17,4 +17,9 @@ public class StudentServiceImpl implements StudentService{
         return studentRepo.findAll().stream().toList();
     }
 
+    @Override
+    public Student saveStudent(Student student) {
+        return studentRepo.save(student);
+    }
+
 }

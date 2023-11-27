@@ -1,8 +1,8 @@
 package com.example.studentmanagement;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -10,7 +10,14 @@ import java.util.List;
 public class HomeController {
     private StudentService studentServ;
     @GetMapping("/getStudents")
+    //To get the list of students
     public List<Student> getStudents(){
         return studentServ.getStudents();
     }
+    //To save the student in database
+    @PostMapping("/addstudent")
+    public ResponseEntity<Student> addStudent(@RequestBody Student student){
+        return new ResponseEntity<Student>(studentServ.saveStudent(student), HttpStatus.CREATED);
+    }
+
 }
