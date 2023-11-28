@@ -28,5 +28,8 @@ public class HomeController {
     public Student getElementbyId(@PathVariable("id") long id){
         return studentServ.getStudentById(id);
     }
-
+    @PutMapping("/updatestudent/{id}")
+    public Student updateStudentById(Student student ,@PathVariable("id") long id){
+        return studentServ.updateStudentbyId(student, id);
+    }
 }

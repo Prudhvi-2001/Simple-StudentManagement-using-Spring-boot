@@ -32,4 +32,13 @@ public class StudentServiceImpl implements StudentService{
         else throw new RuntimeException();
     }
 
+    @Override
+    public Student updateStudentbyId(Student student, long id) {
+        Student existingStudent = studentRepo.findById(id).get();
+        existingStudent.setName(student.getName());
+        existingStudent.setEmail(student.getEmail());
+        studentRepo.save(existingStudent);
+        return  existingStudent;
+    }
+
 }
