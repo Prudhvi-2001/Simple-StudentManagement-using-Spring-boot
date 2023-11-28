@@ -9,6 +9,11 @@ import java.util.List;
 @RestController
 public class HomeController {
     private StudentService studentServ;
+
+    public HomeController(StudentService studentServ) {
+        this.studentServ = studentServ;
+    }
+
     @GetMapping("/getStudents")
     //To get the list of students
     public List<Student> getStudents(){
