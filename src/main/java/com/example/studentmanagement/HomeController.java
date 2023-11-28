@@ -19,5 +19,9 @@ public class HomeController {
     public ResponseEntity<Student> addStudent(@RequestBody Student student){
         return new ResponseEntity<Student>(studentServ.saveStudent(student), HttpStatus.CREATED);
     }
+    @GetMapping("/getstudentbyId/{id}")
+    public Student getElementbyId(@PathVariable("id") long id){
+        return studentServ.getStudentById(id);
+    }
 
 }
