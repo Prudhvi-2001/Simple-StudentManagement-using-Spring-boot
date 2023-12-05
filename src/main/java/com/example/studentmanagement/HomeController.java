@@ -32,4 +32,8 @@ public class HomeController {
     public Student updateStudentById(Student student ,@PathVariable("id") long id){
         return studentServ.updateStudentbyId(student, id);
     }
+    @DeleteMapping("/deleteStudentByid/{id}")
+    public void deleteStudentById(@PathVariable("id") long id){
+        studentServ.deleteStudentById(id);
+    }
 }

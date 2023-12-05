@@ -8,4 +8,5 @@ public interface StudentService {
     Student getStudentById(long id);
 
     Student updateStudentbyId(Student student,long id);
+    void deleteStudentById(long id);
 }
